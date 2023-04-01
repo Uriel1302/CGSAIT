@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link href="../css/style.css" rel="stylesheet"></link>
+        <title>Generador de Reportes</title>
+
+    </h:head>
+    <h:body>
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+                <div class="loginbackground box-background--white padding-top--64">
+                    <div class="loginbackground-gridContainer">
+                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                            </div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                    </div>
+                </div>
+                <h:form id="no">
+                    <p:menubar class="commandbutton">
+                        <p:submenu label="Menú">
+                            <p:menuitem value="Home" outcome="/index.xhtml" icon="pi pi-home"/>
+                            <p:menuitem value="Cumpleaños" outcome="userview.xhtml" icon="pi pi-calendar"/>
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+                <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+                    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                        <h1><a rel="dofollow">Reporte de Incidencias</a></h1>
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg">
+                            <div class="formbg-inner padding-horizontal--48">
+                                <center> <span style="align-content: center; align-items: center; align-self: center; font-size: 30px;" class="padding-bottom--15">Registro</span></center>
+                                <h:form id="stripe-login">
+                                    <div class="field padding-bottom--24">
+                                        <label for="email">Nombre</label>
+                                        <p:inputText value="#{beanController.persona.nombre}" id="name"/>
+
+                                        <label for="email">Codigo</label>
+                                        <p:inputText type="number" value="#{beanController.persona.codigo}" id="code"/>
+
+                                        <p:growl>
+                                            <p:autoUpdate />
+                                        </p:growl>
+
+                                        <h5 style="margin-top:0px;">Días</h5>
+                                        <p:selectManyCheckbox id="basic" value="#{beanController.motivos.dias}" columns="8" layout="grid">
+                                            <f:selectItem itemLabel="1" itemValue="1"/>
+                                            <f:selectItem itemLabel="2" itemValue="2"/>
+                                            <f:selectItem itemLabel="3" itemValue="3"/>
+                                            <f:selectItem itemLabel="4" itemValue="4"/>
+                                            <f:selectItem itemLabel="5" itemValue="5"/>
+                                            <f:selectItem itemLabel="6" itemValue="6"/>
+                                            <f:selectItem itemLabel="7" itemValue="7"/>
+                                            <f:selectItem itemLabel="8" itemValue="8"/>
+                                            <f:selectItem itemLabel="9" itemValue="9"/>
+                                            <f:selectItem itemLabel="10" itemValue="10"/>
+                                            <f:selectItem itemLabel="11" itemValue="11"/>
+                                            <f:selectItem itemLabel="12" itemValue="12"/>
+                                            <f:selectItem itemLabel="13" itemValue="13"/>
+                                            <f:selectItem itemLabel="14" itemValue="14"/>
+                                            <f:selectItem itemLabel="15" itemValue="15"/>
+                                            <f:selectItem itemLabel="16" itemValue="16"/>
+                                            <f:selectItem itemLabel="17" itemValue="17"/>
+                                            <f:selectItem itemLabel="18" itemValue="18"/>
+                                            <f:selectItem itemLabel="19" itemValue="19"/>
+                                            <f:selectItem itemLabel="20" itemValue="20"/>
+                                            <f:selectItem itemLabel="21" itemValue="21"/>
+                                            <f:selectItem itemLabel="22" itemValue="22"/>
+                                            <f:selectItem itemLabel="23" itemValue="23"/>
+                                            <f:selectItem itemLabel="24" itemValue="24"/>
+                                            <f:selectItem itemLabel="25" itemValue="25"/>
+                                            <f:selectItem itemLabel="26" itemValue="26"/>
+                                            <f:selectItem itemLabel="27" itemValue="27"/>
+                                            <f:selectItem itemLabel="28" itemValue="28"/>
+                                            <f:selectItem itemLabel="29" itemValue="29"/>
+                                            <f:selectItem itemLabel="30" itemValue="30"/>
+                                            <f:selectItem itemLabel="31" itemValue="31"/>
+
+                                        </p:selectManyCheckbox>
+                                        <br></br>
+                                        <label for="email">Mes</label>
+                                        <tr><p:selectOneMenu id="option" value="#{beanController.motivos.mes}">
+                                                <f:selectItem itemLabel="Enero" itemValue="Enero"/>
+                                                <f:selectItem itemLabel="Febrero" itemValue="Febrero"/>
+                                                <f:selectItem itemLabel="Marzo" itemValue="Marzo"/>
+                                                <f:selectItem itemLabel="Abril" itemValue="Abril"/>
+                                                <f:selectItem itemLabel="Mayo" itemValue="Mayo"/>
+                                                <f:selectItem itemLabel="Junio" itemValue="Junio"/>
+                                                <f:selectItem itemLabel="Julio" itemValue="Julio"/>
+                                                <f:selectItem itemLabel="Agosto" itemValue="Agosto"/>
+                                                <f:selectItem itemLabel="Septiembre" itemValue="Septiembre"/>
+                                                <f:selectItem itemLabel="Octubre" itemValue="Octubre"/>
+                                                <f:selectItem itemLabel="Noviembre" itemValue="Noviembre"/>
+                                                <f:selectItem itemLabel="Diciembre" itemValue="Diciembre"/>
+                                            </p:selectOneMenu></tr>
+
+                                        <label for="email">Motivo</label>
+                                        <tr><p:selectOneMenu id="city" value="#{beanController.motivos.motivo}" editable="true" placeholder="Otro (ESCRIBA EL MOTIVO)">
+                                                <f:selectItem itemLabel="Día de puntualidad" itemValue="Día de puntualidad"/>
+                                                <f:selectItem itemLabel="Día de cumpleaños" itemValue="Día de cumpleaños"/>
+                                                <f:selectItem itemLabel="Llegar tarde (tolerancia)" itemValue="Llegar tarde(tolerancia)"/>
+                                                <f:selectItem itemLabel="Fallecimiento de un familiar directo" itemValue="Fallecimiento de un familiar directo"/>
+                                                <f:selectItem itemLabel="Permiso para adaptacion en la guardería" itemValue="Permiso para adaptacion en la guardería"/>
+                                                <f:selectItem itemLabel="Permiso por enfermedad de los hijos" itemValue="Permiso por enfermedad de los hijos"/>
+                                                <f:selectItem itemLabel="Union matrimonial" itemValue="Union matrimonial"/>
+                                                <f:selectItem itemLabel="Permiso sin goce de sueldo" itemValue="Permiso sin goce de sueldo"/>
+                                            </p:selectOneMenu></tr>
+
+                                        <label>Indicar:</label>
+                                        <tr><p:selectOneMenu id="detalle" value="#{beanController.motivos.detalle}">
+                                                <f:selectItem itemLabel="Repondré el tiempo" itemValue="Repondré el tiempo"/>
+                                                <f:selectItem itemLabel="Descuento económico" itemValue="Descuento enonómico"/>
+
+                                            </p:selectOneMenu></tr>
+                                    </div>
+
+                                    <h1 align="center"><p:commandButton actionListener="#{beanController.exportarPDF}" value="Generar Reporte" ajax="false" styleClass="ui-button-outlined" style="background: #66ccff;" update="stripe-login"></p:commandButton> &nbsp;&nbsp;&nbsp;&nbsp; <p:commandButton value="Borrar Campos" actionListener="#{beanController.persona.clear()}" update="stripe-login" styleClass="ui-button-danger" style="background: #ff6666;"><f:actionListener binding="#{beanController.motivos.clear()}"/></p:commandButton></h1>
+
+                                </h:form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </h:body>
+</html>
+

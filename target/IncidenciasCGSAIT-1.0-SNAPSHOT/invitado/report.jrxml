@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="320"/>
+	<queryString>
+		<![CDATA[SELECT *
+FROM "public"."personas" P
+JOIN "public"."motivos" M
+ON P.id_p = M.id_m
+order by M.id_m DESC LIMIT 1]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="codigo" class="java.lang.Integer"/>
+	<field name="fecha_actual" class="java.lang.String"/>
+	<field name="id_p" class="java.lang.Integer"/>
+	<field name="status" class="java.lang.String"/>
+	<field name="dias" class="java.lang.String"/>
+	<field name="mes" class="java.lang.String"/>
+	<field name="motivo" class="java.lang.String"/>
+	<field name="id_m" class="java.lang.Integer"/>
+	<field name="detalle" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="112" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="261" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MRTA. MARIA GUADALUPE CID ESCOBEDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="73" width="555" height="20"/>
+				<textElement/>
+				<text><![CDATA[Me perimito solicitar el(los) día(s) __________correspondiente(s) al mes de ____________ del          , por el motivo de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="354" height="20"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[COORDINADORA GENERAL DE SERVICIOS ADMINISTRATIVOS E INFRAESTUCTURA TECNOLÓGICA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="100" height="20"/>
+				<textElement/>
+				<text><![CDATA[PRESENTE.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="390" y="0" width="165" height="40" forecolor="#FFFFFF" backcolor="#333333"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[INCIDENCIA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="147" y="73" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{dias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="73" width="73" height="20"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{mes}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="102" width="205" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="2" y="90" width="205" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{motivo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="424" y="73" width="57" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="44" y="12" width="494" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solo en caso de solicitud de tiempo de tolerancia o salida anticipada favor de indicar:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="10" width="40" height="20" forecolor="#FFFFFF" backcolor="#333333"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[>>>]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="225" y="38" width="18" height="18"/>
+			</rectangle>
+			<line>
+				<reportElement x="1" y="69" width="553" height="1"/>
+				<graphicElement>
+					<pen lineWidth="5.0" lineStyle="Double"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="248" y="40" width="144" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{detalle}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="229" y="36" width="31" height="22"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[X]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="218" y="4" width="131" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ATENTAMENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="30" width="128" height="20"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Fecha de elaboracion:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="50" width="53" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="74" y="70" width="53" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Código:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="130" y="46" width="160" height="1"/>
+			</line>
+			<line>
+				<reportElement x="131" y="64" width="160" height="1"/>
+			</line>
+			<line>
+				<reportElement x="133" y="81" width="160" height="1"/>
+			</line>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="131" y="32" width="163" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[new SimpleDateFormat("dd MMMMM yyyy").format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="51" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="69" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{codigo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="377" y="58" width="163" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Firma del interesado]]></text>
+			</staticText>
+			<line>
+				<reportElement x="377" y="54" width="160" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="253" splitType="Stretch">
+			<staticText>
+				<reportElement x="225" y="88" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jefe Inmediato]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="89" width="159" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coordinadora General]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="387" y="89" width="176" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsable de personal]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="151" width="160" height="1"/>
+			</line>
+			<line>
+				<reportElement x="196" y="150" width="160" height="1"/>
+			</line>
+			<line>
+				<reportElement x="394" y="150" width="160" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="151" width="171" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MRTA. MARIA GUADALUPE CID ESCOBEDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="150" width="161" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[ING. ALEJANDRO MARTÍNEZ VARELA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="151" width="161" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[MTRA. KENYA UNISES CASTRO GONZÁLEZ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="162" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[COORDINADORA GENERAL DE CGSAIT-UdG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="196" y="162" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[COORDINADOR DE DISEÑO DE PROYECTOS TECNOLÓGICOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="395" y="169" width="160" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[RESPONSABLE DE RECURSOS HUMANOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="192" width="72" height="20" forecolor="#FFFFFF" backcolor="#333333"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[IMPORTANTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="73" y="192" width="481" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Entregar la presente solicitud con 3 días de anticipación a RH firmada por su Coordinador de Área y/o Jefe Inmediato.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="224" y="0" width="100" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jefe de Unidad]]></text>
+			</staticText>
+			<line>
+				<reportElement x="188" y="57" width="160" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

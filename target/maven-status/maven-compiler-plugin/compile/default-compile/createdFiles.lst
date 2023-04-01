@@ -1,0 +1,17 @@
+domain\PersonaDao.class
+modelo\Cumpleanero.class
+beans\model\mbPersona.class
+Reportes\servicio\Servicio.class
+com\mycompany\cumpleanios\JAXRSConfiguration.class
+Reportes\modelo\Conexion.class
+Reportes\controlador\LoginBean.class
+Reportes\controlador\Persona.class
+Reportes\controlador\BeanController.class
+com\mycompany\cumpleanios\resources\JavaEE8Resource.class
+Reportes\controlador\Motivos.class
+modelo\Persona.class
+Reportes\modelo\Transacciones.class
+EJB\ejbPersona.class
+Reportes\servicio\Sesion.class
+domain\Conexion.class
+Reportes\modelo\AutorizacionListener.class

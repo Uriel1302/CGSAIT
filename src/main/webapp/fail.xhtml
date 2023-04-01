@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"   
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <link href="css/style.css" rel="stylesheet"></link>
+        <title>Login</title>
+    </h:head>
+    <h:body>
+        <div class="login-root">
+            <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+                <div class="loginbackground box-background--white padding-top--64">
+                    <div class="loginbackground-gridContainer">
+                        <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+                            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+                            </div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+                            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+                            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+                            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+                            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+                            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+                            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+                            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+                            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <h:form>
+                    <p:menubar class="commandbutton">
+                        <p:submenu label="Menú" icon="pi pi-fw pi-home">
+                            <p:menuitem value="Home" outcome="/index.xhtml" icon="pi pi-fw pi-home"/>
+                            <p:menuitem value="Invitado" outcome="invitado/index.xhtml"/>
+                        </p:submenu>
+                    </p:menubar>
+                </h:form>
+                <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+                    <br></br>
+                    <h1 align="center"><a rel="dofollow">Login</a></h1><br></br>
+                    <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+
+                    </div>
+                    <div class="formbg-outer">
+                        <div class="formbg">
+                            <div class="formbg-inner padding-horizontal--48" style="background: #ECECEC;">
+
+                                <h:form id="stripe-login" >
+                                        
+                                    <div class="field padding-bottom--24">
+                                        <label for="email" class="pi pi-user" style="font-size: 20px;"> Usuario</label>
+                                        <p:inputText value="#{loginBean.name}" id="nombre"/>
+
+                                        <label for="email" class="pi pi-lock" style="font-size: 20px;"> Contraseña </label>
+                                        <br></br> <p:password id="toggle" value="#{loginBean.pass}" toggleMask="true" redisplay="true"/>
+                                    </div>
+
+                                    <h1 align="center"><p:commandButton value="Ingresar" styleClass="ui-button-outlined" style="background: #ccffff;" action="#{loginBean.action}"> </p:commandButton></h1>
+                                   
+                                                
+                                 
+                                </h:form>
+
+                            </div>
+                            <p:staticMessage severity="error" summary="ERROR" detail="Usuario o contraseña incorrectos" style="width: 100%; height: 10%;"/>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+        </div>
+
+    </h:body>
+</html>
+

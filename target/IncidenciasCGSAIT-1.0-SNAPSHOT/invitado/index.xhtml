@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <!-- basic -->
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <!-- mobile metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1"/>
+
+        <meta name="keywords" content=""/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+        <!-- bootstrap css -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <!-- style css -->
+        <link rel="stylesheet" href="../css/style_1.css"/>
+        <!-- Responsive-->
+        <link rel="stylesheet" href="../css/responsive.css"/>
+        <!-- fevicon -->
+        <link rel="icon" href="images/fevicon.png" type="image/gif" />
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"/>
+        <!-- Tweaks for older IEs-->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"/>
+
+        <title>Servicios Internos</title>
+        <h:form id="no">
+            <p:menubar class="commandbutton" style="border-radius: 100px;">
+                <p:submenu label="Menú">
+                    <p:menuitem value="Home" outcome="/index.xhtml" icon="pi pi-fw pi-home" />
+                    <p:menuitem value="Admin" outcome="/login.xhtml" icon="pi pi-users"/>
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+    </h:head>
+
+
+    <body class="main-layout">
+
+        <!-- services -->
+        <div  class="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <div class="titlepage">
+                            <h2>Servicios Internos</h2>
+                        </div>
+                    </div>
+                </div>
+                <!--<p:commandButton value=" " styleClass=""  icon="" onclick="window.history.back();"/>-->
+                <div class="row">
+                    <a href="Registro.xhtml">
+                        <div class="col-md-4">
+                            <div id="serv_hover"  class="services_box">
+                                <i><img src="../css/image1336-03dt-200w.png" alt="#" width="200px"/></i>
+                                <h3>Registro de Incidencias</h3>
+                            </div>
+                        </div></a>
+                    <a href="userview.xhtml"> <div class="col-md-4">
+                            <div id="serv_hover" class="services_box">
+                                <i><img src="../css/conf.png" alt="#" width="230px"/></i>
+                                <h3>Lista de Cumpleaños</h3>
+
+                            </div>
+                        </div></a>
+
+                </div>
+            </div>
+        </div>
+
+
+    </body>
+
+
+
+
+</html>
+

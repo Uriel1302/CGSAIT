@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Cumpleaños CGSAIT</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </h:head>
+
+    <f:view contentType="text/html">
+        <h:body>
+            <h:form id="personas">
+                <header>
+                    <h:form id="no" style="text-align: left">
+                        <p:menubar class="commandbutton" style="text-align: left; padding-right:50px;">
+                            <p:submenu label="Menú" >
+                                <p:menuitem value="Home" outcome="/index.xhtml" icon="pi pi-fw pi-home"/>
+                                <p:menuitem value="Incidencias" outcome="Registro.xhtml" icon="pi pi-book"/>
+                            </p:submenu>
+                        </p:menubar>
+                    </h:form>
+                    <h1> Cumpleaños CGSAIT</h1>
+                </header>
+                <h:form id="form">
+                    <p:panel style="margin-bottom: 20px; margin-left: 20px; margin-right: 20px; margin-top: -20px;">
+                        <p:dataTable class="cell-border" style="margin-bottom: 10px; margin-left: 10px; margin-right: 10px; margin-top: 10px;"  value="#{personaOA.personas}" var="p"  id="personas"
+                                     paginator="true" paginatorPosition="both" rows="10"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                     rowsPerPageTemplate="10,25,50,{ShowAll|'Todos'}"
+                                     scrollable="true" liveScroll="true"
+                                     reflow="true"
+                                     rowStyleClass="registroVinculado">
+
+                            <f:facet name="header" >
+                                <h1 style="text-align: center"> Lista de personas</h1>
+                            </f:facet> 
+                            <p:column style="text-align: center" headerText="Nombre" filterBy="#{p.nombre}" filterMatchMode="contains">
+                                <p:outputLabel>
+                                    <h:outputText value="#{p.nombre}" />
+                                </p:outputLabel>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Apellido Paterno" filterBy="#{p.apellido_paterno}" filterMatchMode="contains">
+                                <p:outputLabel>
+                                    <h:outputText value="#{p.apellido_paterno}" />
+                                </p:outputLabel>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Apellido Materno" filterBy="#{p.apellido_materno}" filterMatchMode="contains">
+                                <p:outputLabel>
+                                    <h:outputText value="#{p.apellido_materno}" />
+                                </p:outputLabel>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Cumpleaños" filterBy="#{p.fecha_cumpleanios}" filterMatchMode="contains">
+                                <p:outputLabel value="#{p.fecha_cumpleanios}">
+                                     <f:convertDateTime pattern="dd 'de' MMMM" />
+                                </p:outputLabel>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Email" filterBy="#{p.email}" filterMatchMode="contains">
+                                <p:outputLabel>
+                                    <h:outputText value="#{p.email}" />
+                                </p:outputLabel>
+                            </p:column>
+
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+            </h:form>
+        </h:body>
+    </f:view>
+
+</html>
+

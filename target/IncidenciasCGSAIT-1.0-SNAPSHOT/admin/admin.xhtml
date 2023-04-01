@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Admin Cumpleaños CGSAIT</title>
+        <link rel="stylesheet" type="text/css" href="../css/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <h:outputScript>
+            PrimeFaces.locales['es'] = {
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S']
+            };
+        </h:outputScript>
+        <h:form>
+
+            <p:menubar class="commandbutton" style=" text-align: left" >
+                <p:submenu label="Menú" >
+                    <p:menuitem value="Home" outcome="/index.xhtml" icon="pi pi-fw pi-home"/>
+                    <p:menuitem value="Reportes" outcome="Datos.xhtml" icon="pi pi-file"/>
+                    <p:menuitem value="Cerrar sesión" actionListener="#{loginBean.cerrarSesion()}" icon="pi pi-sign-out"/>
+
+                </p:submenu>
+            </p:menubar>
+        </h:form>
+
+    </h:head>
+    <f:view contentType="text/html">
+
+        <body>
+            <h:form style="text-align: left" id="personas">
+                <header>
+                    <h1> Cumpleaños CGSAIT Admin</h1>
+                    <p:growl id="msgs" showDetail="true" showSummary="false"/>
+                    <!--<p:commandButton value="Correo" actionListener="{prueba.saludo}" /> -->
+
+                    <p:dialog style="text-align: center" header="Añadir persona" id="dialog" widgetVar="wdialog">
+                        <p:panelGrid styleClass="ui-noborder">
+                            <p:row>
+                                <p:column><p:outputLabel value="Nombre(s)" for="nombre"/></p:column>
+                                <p:column><p:inputText value="#{personaOA.cumpleaniero.nombre}" id="nombre" style="width: 100%"/></p:column>
+                            </p:row>
+                            <!-- comment <td><h:message for="nombre"></h:message></td>-->
+                            <p:row>
+                                <p:column><p:outputLabel value="Apellido paterno" for="apellido_paterno"/></p:column>
+                                <p:column><p:inputText value="#{personaOA.cumpleaniero.apellido_paterno}" id="apellido_paterno" style="width: 100%"/></p:column>
+                                <!-- comment <td><h:message for="nombre"></h:message></td>-->
+                            </p:row>
+                            <p:row>
+                                <p:column><p:outputLabel value="Apellido materno" for="apellido_materno"/></p:column>
+                                <p:column><p:inputText value="#{personaOA.cumpleaniero.apellido_materno}" id="apellido_materno" style="width: 100%"/></p:column>
+                                <!-- comment <td><h:message for="nombre"></h:message></td>-->
+                            </p:row>
+                            <p:row>
+                                <p:column><p:outputLabel value="Fecha de cumpleaños" for="fecha_cumpleanios"/></p:column>
+                                <!-- <td><p:inputMask id="fecha_cumpleanios" value="{personaOA.cumpleaniero.fecha_cumpleanios}" mask="9999-99-99" /></td>-->
+                                <p:column><p:datePicker id="fecha_cumpleanios" value="#{personaOA.cumpleaniero.fecha_cumpleanios}" showIcon="true" monthNavigator="true" 
+                                                        yearNavigator="true" style="width: 100%" yearRange="1950:2023" pattern="dd-MM-yyy"/></p:column>
+                                <!-- comment <td><h:message for="nombre"></h:message></td>-->
+                            </p:row>
+                            <p:row>
+                                <p:column><p:outputLabel value="Email" for="email"/></p:column>
+                                <p:column><p:inputText value="#{personaOA.cumpleaniero.email}" id="email" style="width: 100%"/></p:column>
+                                <!-- comment <td><h:message for="nombre"></h:message></td>-->
+                            </p:row>
+                        </p:panelGrid>
+                        <p:row>
+                            <p:commandButton value="Guardar" update="personas" styleClass="ui-button-raised ui-button-flat" icon="pi pi-bookmark" actionListener="#{personaOA.insertar}"/>
+                        </p:row>
+                    </p:dialog>
+                </header>
+                <div class="main">
+
+                </div>
+                <div clas="tabla" style="text-align: center">
+                    <p:panel style="margin-bottom: 20px; margin-left: 20px; margin-right: 20px; margin-top: -65px;">
+                        <p:dataTable class="cell-border" style="margin-bottom: 50px; margin-left: 50px; margin-right: 50px; margin-top: 10px;"  value="#{personaOA.personas}" var="p"  id="personas" editable="true" 
+                                     paginator="true" paginatorPosition="both" rows="10"
+                                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                     currentPageReportTemplate="{startRecord}-{endRecord} de {totalRecords} registros"
+                                     rowsPerPageTemplate="10,25,50,{ShowAll|'Todos'}"
+                                     scrollable="true" liveScroll="true"
+                                     reflow="true"
+                                     rowStyleClass="registroVinculado">
+
+                            <f:facet name="header" >
+                                <h1 style="text-align: center"> Lista de personas</h1>
+                                <div style="text-align: center">
+                                    <p:commandButton value="Añadir" icon="pi pi-user" onclick="PF('wdialog').show();" styleClass="ui-button-raised ui-button-info"/>
+                                </div>
+                                <h:outputText id="funcion"  value="#{prueba.verificar()}" ></h:outputText>        
+                            </f:facet> 
+                            <p:column style="text-align: center" headerText="Nombre" filterBy="#{p.nombre}" filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{p.nombre}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{p.nombre}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Apellido Paterno" filterBy="#{p.apellido_paterno}" filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{p.apellido_paterno}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{p.apellido_paterno}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Apellido Materno" filterBy="#{p.apellido_materno}" filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{p.apellido_materno}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{p.apellido_materno}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Cumpleaños" filterBy="#{p.fecha_cumpleanios}" filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <p:outputLabel value="#{p.fecha_cumpleanios}">
+                                            <f:convertDateTime pattern="dd-MMMM-yyyy" />
+                                        </p:outputLabel>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:datePicker id="fecha_cumpleanios" value="#{p.fecha_cumpleanios}" monthNavigator="true" 
+                                                      yearNavigator="true" style="width: 100%" yearRange="1950:2023" pattern="dd-MMMM-yyyy"/>
+                                        <!--<p:inputText a:type="date" value="{p.fecha_cumpleanios}" /> -->
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="text-align: center" headerText="Email" filterBy="#{p.email}" filterMatchMode="contains">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{p.email}" />
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <p:inputText value="#{p.email}" />
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:ajax event="rowEdit" listener="#{personaOA.modificar(p)}" update=":personas:msgs"/>
+                            <p:column headerText="Editar" style="text-align: center">
+                                <p:rowEditor  />
+                            </p:column>
+
+                            <!--<p:column style="text-align: center">
+                                <f:facet name="header" >Modificar</f:facet>
+                                <p:commandButton  id="Modificar" icon="pi pi-pencil" actionListener="{personaOA.mostrarUno(p.id)}"  oncomplete="PF('dlg1').show();" styleClass="rounded-button ui-button-warning" update="personas"/>
+                            </p:column>-->
+                            <p:column style="text-align: center">
+                                <f:facet name="header">Eliminar</f:facet>
+                                <p:growl id="msgs" showDetail="true" showSummary="false"/>
+                                <p:commandButton update="personas" actionListener="#{personaOA.eliminarPersona(p.id)}" icon="pi pi-trash" styleClass="rounded-button ui-button-danger ui-button-outlined" >
+                                    <p:confirm header="CONFIRMACIÓN" message="¿Está seguro de eliminarlo?" icon="pi pi-exclamation-triangle"/>
+                                </p:commandButton>
+
+                                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                                    <p:commandButton value="Eliminar" type="button" styleClass="ui-confirmdialog-yes ui-button-danger" icon="pi pi-times"/>
+                                    <p:commandButton value="Cancelar" type="button" styleClass="ui-confirmdialog-no" />
+                                </p:confirmDialog> 
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </div>
+            </h:form>
+        </body>
+    </f:view>
+</html>
