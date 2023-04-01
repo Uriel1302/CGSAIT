@@ -3,6 +3,9 @@ Creación de un sistema web para la generación de reportes de incidencias para 
 
 
 •	Java 8
+
 •	Postgresql
+
 •	Ireports
+
 •	Payara Server
